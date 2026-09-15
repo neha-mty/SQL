@@ -42,6 +42,43 @@ VALUES
 SELECT email,full_name,city FROM users WHERE NULLIF(trim(city),'') IS NOT NULL;
 
 SELECT email,full_name,city FROM users WHERE city IN ('Delhi', 'Mumbai') OR city IS NULL;
---- we cannot write NULL in here cause 
+--- we cannot write NULL in here cause NULL not there for comparison
 SELECT email,full_name,city FROM users WHERE city ='Delhi' OR city ='Mumbai';
 
+SELECT email,full_name,city FROM users WHERE city NOT IN ('Delhi' ,'Mumbai');
+
+--IN checks if  a value  matches any one  value from a list
+--NOT IN checks if the value matches none from the list
+
+
+--BETWEEN it checks if a value lies within a range (Within range)
+
+
+-- NOT  BET checks if a value lies outside that inclusice range
+
+SELECT email,full_name,city,signup_at_utc 
+ FROM users 
+WHERE signup_at_utc>='2025-12-01 00:00:00' AND signup_at_utc< '2026-01-01 00:00:00';
+SELECT
+  id,
+  email,
+  signup_at_utc
+FROM users
+WHERE signup_at_utc NOT BETWEEN '2025-12-01 00:00:00'
+                        AND '2025-12-31 23:59:59';
+
+
+--LIKE matches text patterns COMMENT
+--NOT LIKE excludes text matches the pattern
+--% means any no of character is allowed
+SELECT email,full_name FROM users WHERE email  LIKE'm%@gmail.com';
+
+SELECT email,full_name FROM users WHERE email  LIKE'neh_@example.co_';
+--_underscore could be anythig
+
+SELECT email,full_name .usera FROM users WHERE email  LIKE 'test_uesrs;'
+
+
+
+
+SELECT email,full_name FROM users WHERE email  LIKE 'tea milk/cjocopis';
