@@ -121,5 +121,11 @@ GROUP BY event
 HAVING COUNT(*)>1;
 
 
+-- -- Grouping by Primary Keys:
+--  If you group by emp_id, every group will only have one row because 
+-- IDs are unique. This makes the grouping useless.
+--  Always group by a column that has repeating values,
+--  like department, city, or project.
+-- ORDER BY also one func
 
 
