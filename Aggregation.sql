@@ -128,4 +128,6 @@ HAVING COUNT(*)>1;
 --  like department, city, or project.
 -- ORDER BY also one func
 
-
+-- Filtering Aggregate Results: Do not try to use WHERE SUM(hours) > 100.
+-- The WHERE clause only works on individual rows.
+-- To filter based on a calculation, you must use HAVING.
