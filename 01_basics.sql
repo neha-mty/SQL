@@ -71,14 +71,19 @@ WHERE signup_at_utc NOT BETWEEN '2025-12-01 00:00:00'
 --LIKE matches text patterns COMMENT
 --NOT LIKE excludes text matches the pattern
 --% means any no of character is allowed
+
+
+--Case Sensitivity: Depending on your database, 
+--LIKE 'a%' might not find names starting with capital "A". 
+--In some databases like PostgreSQL, you might need to use ILIKE 
+--for a search that ignores capitalization.
 SELECT email,full_name FROM users WHERE email  LIKE'm%@gmail.com';
 
 SELECT email,full_name FROM users WHERE email  LIKE'neh_@example.co_';
---_underscore could be anythig
+--_ underscore could be anythig
 
-SELECT email,full_name .usera FROM users WHERE email  LIKE 'test_uesrs;'
+SELECT email,full_name  FROM users WHERE email  LIKE 'test_user%'; 
+SELECT email,full_name  FROM users WHERE email  LIKE 'test\_user%'; 
 
-
-
-
-SELECT email,full_name FROM users WHERE email  LIKE 'tea milk/cjocopis';
+--_underscore is  generic chaacter we dontwanrt the rule to aplly there
+SELECT email,full_name FROM users WHERE email  LIKE'm%@gmail.com';
