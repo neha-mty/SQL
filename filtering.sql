@@ -1,3 +1,4 @@
+--  hello
 CREATE DATABASE IF NOT EXISTS lecture_practice;
 
 USE lecture_practice;
