@@ -93,3 +93,13 @@ INSERT INTO coalesce_demo VALUES
 
 SELECT id,COALESCE(primary_email,work_email,personal_email,'hello@tuf')as contact_email
 FROM coalesce_demo;
+
+SELECT id,COALESCE(primary_email,work_email,personal_email,'hello@tuf')as contact_email
+FROM coalesce_demo;
+SELECT id,COALESCE(NULLIF(TRIM(primary_email),''),work_email,personal_email)as contact_email
+FROM coalesce_demo
+
+-- IS NOT NULL	Checks whether a column value is present (not NULL)	WHERE (to filter rows)	col IS NOT NULL	col IS NOT NULL
+-- IFNULL()	Replaces NULL with a given value (does not filter rows)	SELECT (to clean output)	IFNULL(col, value)	✖ Not available
+-- COALESCE()	PostgreSQL equivalent of IFNULL (returns first non-NULL)	SELECT (to clean output)	COALESCE(col, value)	COALESCE(col, value)
+-- Common mistake	= NULL does not work because NULL is not a normal value	-	✖ col = NULL	✖ col = NULL
