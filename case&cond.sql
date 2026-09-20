@@ -187,3 +187,33 @@ INSERT INTO sales (item, quantity) VALUES
   ('orange', NULL);
 
 
+SELECT
+SUM(CASE WHEN item='orange' THEN COALESCE(quantity ,0)
+ELSE 0
+END) AS oranges_sold,
+SUM(
+CASE 
+WHEN item='apple' THEN COALESCE(quantity ,0)
+ELSE 0
+END) AS apples_sold
+FROM sales ;
+
+
+
+SELECT
+  n.node_id,
+  n.parent_id,
+  CASE
+    WHEN n.parent_id IS NULL THEN 'ROOT'
+    WHEN EXISTS (
+      SELECT 1
+      FROM nodes c
+      WHERE c.parent_id = n.node_id
+    ) THEN 'INTERNAL'
+    ELSE 'LEAF'
+  END AS node_type
+FROM nodes n;
+SELECT 
+  COUNT(CASE WHEN value >= 40 THEN 1 END) AS pass_count,
+  COUNT(CASE WHEN value < 40 THEN 1 END) AS fail_count
+FROM rules;
