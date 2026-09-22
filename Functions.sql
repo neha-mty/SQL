@@ -1,3 +1,4 @@
+-- nobody is going to see this so heheh
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 CREATE TABLE students (
   id INT PRIMARY KEY,
