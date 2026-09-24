@@ -217,3 +217,27 @@ SELECT
   COUNT(CASE WHEN value >= 40 THEN 1 END) AS pass_count,
   COUNT(CASE WHEN value < 40 THEN 1 END) AS fail_count
 FROM rules;
+
+SELECT node_id
+FROM (
+    SELECT node_id,
+    CASE
+        WHEN parent_id IS NULL THEN 'ROOT'
+        WHEN EXISTS (SELECT 1 FROM nodes WHERE parent_id = n.node_id) THEN 'INTERNAL'
+        ELSE 'LEAF'
+    END AS type
+    FROM nodes n
+) AS subquery
+WHERE type = 'INTERNAL';
+-- “Look at every node. If it has no parent, call it ROOT. Otherwise, if it has at least one child, call it INTERNAL.
+--  Otherwise call it LEAF. Finally, show me only the node IDs that are INTERNAL.”
+SELECT 
+  (SUM(CASE WHEN quantity IS NULL THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS null_percentage
+FROM sales;
+SELECT 
+  SUM(CASE WHEN ticket_type = 'Paid' AND referrer = 'Instagram' THEN 1 ELSE 0 END) AS insta_paid_total
+FROM registrations;
+SELECT 
+  COUNT(CASE WHEN years_experience <= 3 THEN 1 END) AS juniors,
+  COUNT(CASE WHEN years_experience > 3 THEN 1 END) AS seniors
+FROM employees;
