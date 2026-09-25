@@ -13,7 +13,7 @@ CREATE TABLE students (
   test2 INT NULL,
   test3 INT NULL
 ); 
-
+-- ignore hehhehhehe
 INSERT INTO students (id, name, city, phone, fee_paid, score_change, test1, test2, test3) VALUES
 (1,  'Aisha',   'Delhi',     NULL,           2804.45,  -12.25, 55, 60, 58),
 (2,  'Rohan',   'Mumbai',    '',             3303.06,  -80.00, 40, NULL, 52),
