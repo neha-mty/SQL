@@ -5,7 +5,7 @@
 --coz it returns a value
 --it can be used in order ,when etc
 SET @temp_age=17
-
+-- hehehhehehehehhehehe ignore
 SELECT 
  CASE
  WHEN @temp_age>=18 THEN 'Adult'
