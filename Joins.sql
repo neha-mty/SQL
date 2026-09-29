@@ -1,3 +1,4 @@
+-- ignore thiszzz
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 CREATE TABLE customers (
   customer_id     INT PRIMARY KEY,
