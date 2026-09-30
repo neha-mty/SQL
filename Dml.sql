@@ -1,6 +1,6 @@
 -- ignoreee this one
 --ignore this command but why it is not getting pushed ?
-    
+    --- ignore but why it is not getting commit
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 DROP TABLE employees;
 CREATE TABLE
