@@ -4,6 +4,8 @@ CREATE TABLE sales (
   quantity INT DEFAULT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET = utf8mb4
+
+  --jokerrrrrrrrrrr
 COLLATE = utf8mb4_0900_ai_ci;
 -- accent insessitive
 -- ci-case insensitive
