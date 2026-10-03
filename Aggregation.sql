@@ -1,5 +1,6 @@
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 -- what is all this drama
+-- what a bad day it was
 CREATE TABLE employees (
   emp_id           INT PRIMARY KEY,
   employee_name    VARCHAR(50) NOT NULL,
