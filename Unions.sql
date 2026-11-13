@@ -1,6 +1,7 @@
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 --UNION
 -- Table 1: delhi_staff
+--wasted
 CREATE TABLE delhi_staff (
     name VARCHAR(50),
     role VARCHAR(50)
