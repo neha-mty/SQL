@@ -1,4 +1,5 @@
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
+--- good revision
 CREATE TABLE sales (
   item     VARCHAR(30) NOT NULL,
   quantity INT DEFAULT NULL
