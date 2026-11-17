@@ -1,7 +1,9 @@
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 --UNION
 -- Table 1: delhi_staff
---wasted
+
+DROP TABLE  delhi_staff;
+>>>>>>> 74f7d7d (Updated project functionality)
 CREATE TABLE delhi_staff (
     name VARCHAR(50),
     role VARCHAR(50)

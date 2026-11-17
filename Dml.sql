@@ -79,3 +79,84 @@ VALUES
 (303, 'Priya Singh', 'Support', 45000.00, '2024-07-01')
 ON DUPLICATE KEY UPDATE
   name = VALUES(name);
+<<<<<<< HEAD
+=======
+
+--IGNORE POLICY
+--ignores if the id already exists
+INSERT IGNORE  INTO employees(emp_id,name,department)
+VALUES(301,'New Person','HR');
+
+
+--UPDATE
+UPDATE employees 
+SET department ='Eng'
+WHERE emp_id=305;
+
+UPDATE employees
+SET department='HR',
+salary=65000.00
+WHERE emp_id=305;
+
+UPDATE employees 
+SET salary =salary*1.5
+WHERE salary<60000.00;
+
+-- The Dangerous "Global" Update
+-- Question: Assign every single employee in the company to the 'HR' department. This is what happens when you forget the WHERE clause.
+
+-- UPDATE employees
+-- SET department = 'HR';
+UPDATE employees
+SET is_active = FALSE
+WHERE emp_id = 304;
+
+--DELETE
+DELETE FROM employees
+WHERE emp_id=305;
+DELETE FROM employees
+WHERE emp_id IN (301, 302);
+
+DELETE FROM employees
+WHERE is_active = FALSE;
+
+DELETE FROM employees
+WHERE hire_date<'2024-01-01';
+
+--DELETE withot a where clause will delete all the data
+
+
+-- -ALTER
+INSERT INTO employees (emp_id,name,department,salary,hire_date,is_active)
+VALUES(304,'Karan Joshi','HR',95000.00,'2022-2-14',FALSE)
+
+ALTER TABLE employees
+ADD COLUMN temp_check INT;
+
+--backfilling data after an alter
+UPDATE employees 
+SET temp_check=10;
+
+SELECT * FROM employees_v2;
+ALTER TABLE employees
+DROP COLUMN temp_check;
+
+
+
+--RENAMING
+ALTER TABLE employees
+RENAME TO employees_v2;
+
+ALTER TABLE employees_v2
+RENAME COLUMN hire_date TO joining_date;
+
+--CHANG CLAUSE
+ALTER TABLE employees_v2
+CHANGE salary monthly_pay DECIMAL(12,2);
+
+ALTER TABLE employees_v2
+MODIFY department VARCHAR(100) NOT NULL;
+
+--TRNCATE--DDL
+
+TRUNCATE TABLE employees_v2;
