@@ -1,6 +1,6 @@
 -- ignoreee this one
 
--- hi this is really weird but i hve to do it
+
 
 -- Active: 1789500142875@@127.0.0.1@3306@lecture_practice
 DROP TABLE employees;
